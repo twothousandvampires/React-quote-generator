@@ -1,0 +1,49 @@
+body{
+  transition: 0.5s all ease-in;
+}
+
+#root{
+  width:100vw;
+  height:100vh;
+ 
+  display:flex;
+  justify-content:center;
+  align-items:center
+}
+
+#quote-box{
+ display:flex;
+ flex-direction:row;
+ flex-wrap:wrap; 
+}
+
+#new-quote{
+  width :20%;
+  border-radius:2%;
+  background-color:aquamarine;
+  font-family: 'Baloo Bhaina 2', cursive;
+  
+}
+
+#author{
+  font-family: 'Baloo Bhaina 2', cursive;
+  font-size:20px;
+  width:100%
+}
+
+#text{
+  font-family: 'Baloo Bhaina 2', cursive;
+  width:100%;
+  overflow-x: auto;
+  max-height: 80px;
+}
+
+#tweet-quote{
+  width:20%;
+  margin-right:60%;
+  text-decoration:none;
+  background-color:aquamarine;
+  text-align:center;
+  margin-top:10px;
+  font-family: 'Baloo Bhaina 2', cursive;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>quote generator</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const quotes=[
+  {
+    quote:"The first half of life consists of the capacity to enjoy without the chance, the last half consists of the chance without the capacity. Mark Twain",
+    author:"Mark Twain"
+  },
+  {
+    quote:"While we are postponing, life speeds by.",
+    author:"Seneca"
+  },
+  {
+     quote:"...",
+     author:"My dog"
+  },
+  {
+     quote:"If you do not think about the future, you cannot have one.",
+     author:"Galsworthy"
+  },
+  {
+    quote:"Belly party!",
+    author:"My girlfriend"
+  }
+]
+
+        const colors = [
+          "yellow",
+          "blue",
+          "green",
+          "orange",
+          "aqua",
+          "red",
+          "purple",
+          "black"
+        ]
+
+        class App extends React.Component{
+        constructor(props){
+          super(props)
+          this.state={
+            quote:"",
+            author:""
+          };
+          this.handlerClicker = this.handlerClicker.bind(this)
+        }  
+        handlerClicker(){
+          this.setState({
+            
+          })
+        }
+
+        render(){
+        let random_color = Math.floor(Math.random()*(colors.length));
+        let random_quote = Math.floor(Math.random()*(quotes.length));
+        document.body.style.backgroundColor=colors[random_color];
+        this.state.quote = quotes[random_quote].quote;
+        this.state.author = quotes[random_quote].author;
+          return(
+            <div id="quote-box" style ={{width:400,height:220,backgroundColor:"white",borderRadius:"2%",padding:"10px"}}>
+              <Quote_text text={this.state.quote}/>
+              <Author author={this.state.author}/>    
+              <Tweet_quote/>
+              <New_quote_button onclick={this.handlerClicker}/>
+            </div>  
+          )
+          }
+        }
+
+        function Quote_text(props){
+          return(
+            <h1 id="text" style={{textAlign:"center"}}>"{props.text}"</h1>
+          )
+        } 
+        function Author(props){
+          return(
+            <h1 id="author" style={{textAlign:"end"}}>-{props.author}</h1>
+          )
+        }
+        function New_quote_button(props){
+          return(
+          <button id ="new-quote" onClick={props.onclick}>new quote</button>
+          )
+        }
+        function Tweet_quote(){
+          return(
+            <a id="tweet-quote"href="twitter.com/intent/tweet">Tweeter</a>
+          )
+        }
+
+        ReactDOM.render(
+          <App/>,
+          document.getElementById('root')
+        );
+    </script>
+  </body>
+</html>
